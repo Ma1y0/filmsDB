@@ -1,13 +1,13 @@
 import { createContext } from "react"
 
 type userContexType = {
-    user: object;
-    username: string;
+    user: any;
+    username: any;
 }
 
 const userContextDefaultValue: userContexType = {
-    user: {},
-    username: ""
+    user: null,
+    username: null
 }
 
 export const UserContext = createContext<userContexType>(userContextDefaultValue)

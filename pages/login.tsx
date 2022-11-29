@@ -12,7 +12,7 @@ export default function Login(props: any) {
 
     return (
         <main>
-            {user? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}
+          {user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}
         </main>
     )
 }
