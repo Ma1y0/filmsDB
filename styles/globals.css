@@ -1,26 +1,30 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    background-color: #b5bdc4;
+    border: none;
+    color: #08090a;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin: 0.5rem 1rem 0.5rem 0;
+}
+
+button:hover {
+    filter: brightness(90%);
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+    background-color: #eef0f1;
 }
