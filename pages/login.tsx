@@ -46,7 +46,7 @@ function UsernameForm() {
   const onChange = (e: Event) => {
       const target = e.target as HTMLInputElement
       const val = target.value
-      const regex = /^(?=[a-zA-Z0-9._]{3,15}$)(?!.*[_.]{2})[^_.].*[^_.]$/
+      const regex = /^(?=[a-zA-Z0-9._]{3,15}$)/
 
       if (val.length < 3) {
           setFormValue(val)

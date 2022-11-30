@@ -9,12 +9,10 @@
     border: none;
     color: #08090a;
     padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
     text-align: center;
     justify-content: center;
     text-decoration: none;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'poppins';
     font-weight: bold;
     border-radius: 0.25rem;
     cursor: pointer;
