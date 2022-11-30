@@ -3,9 +3,12 @@ import Image from "next/image"
 import popcorn from "../public/popcorn.png"
 import menu from "../public/menu.svg"
 import close from "../public/close.svg"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../lib/context"
 
 function NavBar() {
+
+    const { user, username } = useContext(UserContext)
 
     const [open, setOpen] = useState(false)
 
@@ -36,13 +39,19 @@ function NavBar() {
                                 <Link href={route.path}><span className={`sm:flex hidden text-white cursor-pointer font-poppins font-normal text-[20px] ml-5`}>{route.name}</span></Link>
                             </li>
                         ))}
-                        <li key="login">
-                            <Link href="/login"><button className="sm:flex hidden text-white cursor-pointer font-poppins font-normal text-[20px] ml-20"><span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-800 hover:bg-gray-700 rounded-md group-hover:bg-opacity-0">Log In</span></button></Link>
-                        </li>
+                        {user && username ? 
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={user?.photoURL} alt="user picture" className="w-[50px] h-[50px] rounded-full ml-5" />
+                        : 
+                            <li key="login">
+                                <Link href="/login"><button className="sm:flex hidden text-white cursor-pointer font-poppins font-normal text-[20px] ml-10"><span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-800 hover:bg-gray-700 rounded-md group-hover:bg-opacity-0">Log In</span></button></Link>
+                            </li>
+                        }
                     </ul>
 
                     <div className="sm:hidden flex items-center">
-                        <div onClick={() => setOpen(!open)}> 
+                        <Link href="/login"><button className="sm:hidden flex text-white cursor-pointer font-poppins font-normal text-[20px] ml-20"><span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-800 hover:bg-gray-700 rounded-md group-hover:bg-opacity-0">Log In</span></button></Link>
+                        <div className="ml-5" onClick={() => setOpen(!open)}> 
                             <Image src={open ? close : menu} alt="mobile menu" className="w-[32px]" />
                         </div>
                         <div className={`${open ? "flex" : "hidden"} absolute top-24 bg-black right-0`}> 

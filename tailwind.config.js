@@ -13,6 +13,8 @@ module.exports = {
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
         danger: "rgb(255, 0, 0)",
+        submit: "#3bdf72",
+        googlegray: "#bfc6cc"
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
