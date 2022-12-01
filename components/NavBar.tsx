@@ -41,7 +41,7 @@ function NavBar() {
                         ))}
                         {user && username ? 
                             // eslint-disable-next-line @next/next/no-img-element
-                            <img src={user?.photoURL} alt="user picture" className="w-[50px] h-[50px] rounded-full ml-5" />
+                            <Image src={user?.photoURL} alt="user picture" width={50} height={50} className="rounded-full ml-5" />
                         : 
                             <li key="login">
                                 <Link href="/login"><button className="sm:flex hidden text-white cursor-pointer font-poppins font-normal text-[20px] ml-10"><span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-800 hover:bg-gray-700 rounded-md group-hover:bg-opacity-0">Log In</span></button></Link>
