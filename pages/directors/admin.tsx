@@ -14,7 +14,7 @@ export default function admin() {
         e.preventDefault()
 
         try {
-            await setDoc(doc(getFirestore(), "Directors", directorName), {
+            await setDoc(doc(getFirestore(), "directors", directorName), {
                 name: directorName,
                 createdAt: Timestamp.fromDate(new Date())
             })
