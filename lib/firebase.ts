@@ -4,13 +4,7 @@ import { getFirestore, collection, getDoc, where, getDocs, query, limit } from "
 import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBl_Zn7Gt_aRmgq37hTFHyvIQUQWRr_gMY",
-    authDomain: "filmsdb-ac4ea.firebaseapp.com",
-    projectId: "filmsdb-ac4ea",
-    storageBucket: "filmsdb-ac4ea.appspot.com",
-    messagingSenderId: "917088895621",
-    appId: "1:917088895621:web:c5e062f7a19357030a5fec",
-    measurementId: "G-FJPB8KZZ4V"
+    ******* API KEY *******
 }
 
 // Initialize Firebase
