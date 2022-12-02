@@ -11,8 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className="font-poppins font-semibold text-7xl">Hello World</h1>
+      <main>
+        <h1 className="font-poppins font-semibold text-7xl flex justify-center">Hello World</h1>
       </main>
     </div>
   )

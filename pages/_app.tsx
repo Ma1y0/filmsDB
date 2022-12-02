@@ -8,7 +8,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const userData = useUserData()
 
   return (
-    <div className="debug-screens">
+    // debug-screens
+    <div className="">
       <UserContext.Provider value={userData}>
         <NavBar />
         <Component {...pageProps} />
