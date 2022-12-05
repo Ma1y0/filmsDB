@@ -9,7 +9,7 @@ import Link from "next/link"
 
 const limitC = 200
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
     const ref = collectionGroup(getFirestore(), "directors")
     const directorsQuery = query(
         ref,
