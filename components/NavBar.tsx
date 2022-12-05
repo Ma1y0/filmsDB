@@ -28,7 +28,7 @@ function NavBar() {
     ]
 
     return (
-        <div className="w-full bg-black overflow-hidden">
+        <div className="w-full bg-black overflow-hidden mb-5">
             <div className="m:px-16 px-6 flex justify-center items-center">
                 <nav className="py-6 w-full flex">
                     <Link href="/"><Image src={popcorn} alt="logo" width={80} /></Link>

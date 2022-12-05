@@ -1,31 +1,35 @@
 // import { collectionGroup, getFirestore, query, limit, getDocs } from "firebase/firestore"
 // import { GetServerSideProps } from "next"
 
+import { collectionGroup, getDocs, getFirestore, limit, orderBy, query } from "firebase/firestore"
+import { DirectorsToJSON } from "../../lib/firebase"
+import { useState } from "react"
+import DirectorsList from "../../components/DirectorsList"
 import Link from "next/link"
 
-// const limitConst = 10
+const limitC = 200
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//     const ref = collectionGroup(getFirestore(), "directors")
-//     const directorsQuery = query(
-//         ref,
-//         limit(limitConst)
-//     )
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const ref = collectionGroup(getFirestore(), "directors")
+    const directorsQuery = query(
+        ref,
+        orderBy('createdAt', 'desc'),
+        limit(limitC)
+    )
 
-//     const directors = (await getDocs(directorsQuery))
+    const directors = (await getDocs(directorsQuery)).docs.map(DirectorsToJSON)
 
-//     return {
-//         props: directors || {}
-//     }
-// }
+    return {
+        props: { directors }
+    }
+}  
 
-export default function directors() {
+export default function Directors(props: any) {
+    const [directors, setDirectors] = useState(props.directors)
+
     return (
-        <main>
-            <meta title="Direcors" />
-            <Link href="/directors/admin">
-                <button>Admin</button>
-            </Link>
+        <main className="flex justify-center">
+            <DirectorsList directors={directors} admin={false} />
         </main>
     )
 }

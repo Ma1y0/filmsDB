@@ -1,21 +1,29 @@
+import Image from "next/image";
 import nouserpicture from "../public/nouserpicture.png"
-import Image from "next/image"
 
-type paramsType = {
+type inputDirectors = {
     directors: any;
-    admin: boolean
+    admin: boolean;
 }
 
-export default function DirectorsList({ directors, admin}: paramsType) {
-    return directors ? directors.map((director: object) => <DirectorItem director={director} admin={admin} />)
+type inputDirector = {
+    director: any;
+    admin: boolean;
 }
 
-
-function DirectorItem({ director }: any) {
+export default function DirectorsList({ directors, admin = false }: inputDirectors) {
     return (
-        <div>
-            <Image src={nouserpicture} alt="Director's Picture" />
-            <h1>{director.name}</h1>
+        <div className="flex flex-wrap justify-center gap-3 mb-5">
+            {directors ? directors.map((direcotr: any) => <DirectorItem director={direcotr} admin={admin} key={directors?.name} />) : null}
+        </div>
+    )
+}
+
+function DirectorItem({ director, admin = false}: inputDirector) {
+    return (
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
+            <Image className="rounded-t-lg" src={nouserpicture} alt="Director's picture" width={300} />
+            <h1 className="font-poppins font-semibold m-3 text-2xl">{director.name}</h1>
         </div>
     )
 }

@@ -1,10 +1,16 @@
 import { initializeApp, getApps, getApp } from "firebase/app"
 import { getAuth, GoogleAuthProvider } from "firebase/auth"
-import { getFirestore, collection, getDoc, where, getDocs, query, limit } from "firebase/firestore"
+import { getFirestore, collection, getDoc, where, getDocs, query, limit, DocumentSnapshot } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
-    ******* API KEY *******
+    apiKey: "AIzaSyBl_Zn7Gt_aRmgq37hTFHyvIQUQWRr_gMY",
+    authDomain: "filmsdb-ac4ea.firebaseapp.com",
+    projectId: "filmsdb-ac4ea",
+    storageBucket: "filmsdb-ac4ea.appspot.com",
+    messagingSenderId: "917088895621",
+    appId: "1:917088895621:web:c5e062f7a19357030a5fec",
+    measurementId: "G-FJPB8KZZ4V"
 }
 
 // Initialize Firebase
@@ -28,5 +34,11 @@ export const firestore = getFirestore(firebaseApp)
 // Storage Exports
 export const storage = getStorage(firebaseApp)
 
-// Server Time
-// export const serverTime = 
+// Helper Functions
+export function DirectorsToJSON(doc: DocumentSnapshot) {
+    const data = doc.data()
+    return {
+        ...data,
+        createdAt: data?.createdAt.toMillis() || 0
+    }
+}
