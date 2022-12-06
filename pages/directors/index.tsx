@@ -1,6 +1,3 @@
-// import { collectionGroup, getFirestore, query, limit, getDocs } from "firebase/firestore"
-// import { GetServerSideProps } from "next"
-
 import { collectionGroup, getDocs, getFirestore, limit, orderBy, query } from "firebase/firestore"
 import { DirectorsToJSON } from "../../lib/firebase"
 import { useState } from "react"
