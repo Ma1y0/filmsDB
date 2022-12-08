@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { doc, setDoc, getFirestore, Timestamp } from 'firebase/firestore';
+import { doc, setDoc, getFirestore, Timestamp } from 'firebase/firestore'
 
 export default function Admin() {
     const [actorName, setActorName] = useState("")
