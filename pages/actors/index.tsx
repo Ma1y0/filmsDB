@@ -1,7 +1,7 @@
 import { collectionGroup, getDocs, getFirestore, limit, orderBy, query } from "firebase/firestore"
 import { DirectorsToJSON } from "../../lib/firebase"
 import { useState } from "react"
-import DirectorsList from "../../components/DirectorsList"
+import ActorsList from "../../components/ActorsList"
 import Link from "next/link"
 
 const limitC = 200
@@ -26,7 +26,7 @@ export default function Actors(props: any) {
 
     return (
         <main className="flex justify-center">
-            <DirectorsList directors={directors} admin={false} />
+            <ActorsList directors={directors} admin={false} />
         </main>
     )
 }

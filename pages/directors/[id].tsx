@@ -2,6 +2,7 @@ import { collectionGroup, getDocs, getFirestore, limit, query, where } from "fir
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { DirectorsToJSON } from "../../lib/firebase"
+import Image from "next/image"
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
     const { id } = context.query
@@ -24,8 +25,9 @@ export default function Director(props: any) {
 
 
     return (
-        <main>
-            <h1>{director.name}</h1>
+        <main className="flex justify-center flex-col items-center gap-2">
+            <h1 className="font-poppins font-semibold text-7xl">{director?.name}</h1>
+            <Image src={director?.photoURL} alt="Director's Picture" width={300} height={300} />
         </main>
     )
 }
