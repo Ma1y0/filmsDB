@@ -33,7 +33,7 @@ function NavBar() {
                 <nav className="py-6 w-full flex">
                     <Link href="/"><Image src={popcorn} alt="logo" width={80} /></Link>
 
-                    <ul className="list-none flex justify-end items-center flex-1">
+                    <ul className="list-none sm:flex hidden justify-end items-center flex-1">
                         {routes.map(route => (
                             <li key={route.name}>
                                 <Link href={route.path}><span className={`sm:flex hidden text-white cursor-pointer font-poppins font-normal text-[20px] ml-5`}>{route.name}</span></Link>
@@ -41,7 +41,7 @@ function NavBar() {
                         ))}
                         {user && username ? 
                             // eslint-disable-next-line @next/next/no-img-element
-                            <Image src={user?.photoURL} alt="user picture" width={50} height={50} className="rounded-full ml-5" />
+                            <Image className="sm:flex hidden" src={user?.photoURL} alt="user picture" width={50} height={50} className="rounded-full ml-5" />
                         : 
                             <li key="login">
                                 <Link href="/login"><button className="sm:flex hidden text-white cursor-pointer font-poppins font-normal text-[20px] ml-10"><span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-800 hover:bg-gray-700 rounded-md group-hover:bg-opacity-0">Log In</span></button></Link>
@@ -49,8 +49,15 @@ function NavBar() {
                         }
                     </ul>
 
-                    <div className="sm:hidden flex items-center">
-                        <Link href="/login"><button className="sm:hidden flex text-white cursor-pointer font-poppins font-normal text-[20px] ml-20"><span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-800 hover:bg-gray-700 rounded-md group-hover:bg-opacity-0">Log In</span></button></Link>
+                    <div className="sm:hidden flex items-center justify-end flex-1">
+                        {user && username ? 
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <Image src={user?.photoURL} alt="user picture" width={50} height={50} className="rounded-full ml-5" />
+                        : 
+                            <li key="login">
+                                <Link href="/login"><button className="sm:hidden flex text-white cursor-pointer font-poppins font-normal text-[20px] ml-10"><span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-800 hover:bg-gray-700 rounded-md group-hover:bg-opacity-0">Log In</span></button></Link>
+                            </li>
+                        }
                         <div className="ml-5" onClick={() => setOpen(!open)}> 
                             <Image src={open ? close : menu} alt="mobile menu" className="w-[32px]" />
                         </div>
@@ -58,7 +65,7 @@ function NavBar() {
                             <ul>
                                 {routes.map(route => (
                                 <li key={route.name} className="list-none flex flex-col justify-end items-end flex-1 m-5">
-                                    <Link href={route.path} className="sm:hidden text-white cursor-pointer font-poppins font-normal ml-5 text-[20px]">
+                                    <Link onClick={() => setOpen(false)} href={route.path} className="sm:hidden text-white cursor-pointer font-poppins font-normal ml-5 text-[20px]">
                                         {route.name}
                                     </Link>
                                 </li>
