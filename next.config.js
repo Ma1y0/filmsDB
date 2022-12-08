@@ -6,6 +6,9 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: "**.googleusercontent.com/**"
+      },
+      {
+        hostname: "**"
       }
     ]
   }
