@@ -24,7 +24,7 @@ function DirectorItem({ director, admin = false}: inputDirector) {
     return (
         <Link href={`/actors/${director.name}`}>
             <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
-                <Image className="rounded-t-lg w-[300px] " src={director.photoURL || nouserpicture} alt="Director's picture" width={300} height={300} />
+                <Image className="rounded-t-lg w-[300px]" src={director.photoURL || nouserpicture} alt="Director's picture" width={300} height={300} />
                 <h1 className="font-poppins font-semibold m-3 text-2xl">{director.name}</h1>
             </div>
         </Link>
