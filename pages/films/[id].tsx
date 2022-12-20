@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import { DirectorsToJSON } from "../../lib/firebase"
 import Image from "next/image"
+import { GetServerSideProps } from "next/types"
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
     const { id } = context.query
@@ -27,7 +28,7 @@ export default function Director(props: any) {
     return (
         <main className="flex justify-center flex-col items-center gap-2">
             <h1 className="font-poppins font-semibold text-7xl">{director?.name}</h1>
-            <Image src={director?.photoURL} alt="Film's Poster" width={300} height={300} />
+            <Image src={director?.posterURL} alt="Film's Poster" width={300} height={300} />
         </main>
     )
 }
